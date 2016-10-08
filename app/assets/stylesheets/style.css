@@ -1,0 +1,50 @@
+.primary-content {
+	position: relative;
+	width: 700px;
+	float: left;
+	padding: 0px 10px 0px 0px;
+	border-right:  2px solid #000000;
+	margin: 0px 0px 0px 0px;
+}
+
+.project-list-item {
+	min-height: 230px;
+	list-style-type: none;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 2px solid #000000;
+	margin: 0px 0px 0px 0px;
+	display: block;
+	top: 0;
+	left: 0;
+}
+
+.project-list-item .project-thumb-container {
+  position: relative;
+  float: left;
+  padding: 0px 15px 0px 0px;
+  margin: 0;
+  top: 0;
+  left: 0;
+}
+
+.project-list-item .project-listing-title {
+	font-size: 200%;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
+.project-list-item .project-listing-type {
+	font-size: 150%;
+  margin: 0;
+}
+
+.project-list-item .project-listing-description {
+  margin: 0;
+}
+
+.project-list-item .project-listing-meta {
+	font-size: 80%;
+  margin: 0;
+}

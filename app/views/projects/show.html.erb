@@ -1,0 +1,21 @@
+<h2><%= @project.title %></h2>
+<p><%= @project.year %> <%= @project.make %> <%= @project.model %> <%= @project.project_type %></p>
+<p><%= @project.description %></p>
+<p>Created by <%= @project.user.username %> <%= time_ago_in_words(@project.created_at) %> ago</p>
+<%= image_tag @project.picture.url(:medium) %>
+
+
+<h3>Posts</h3>
+<%= render @project.posts %>
+
+
+ <div>
+ 	<%= link_to "Back", root_path %>
+ <% if user_signed_in? %>
+ 	<% if @project.user_id == current_user.id %>
+ 		<%= link_to "Edit Project", edit_project_path(@project) %>
+ 		<%= link_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure you want to delete this project?" } %>
+ 		<%= link_to "Add New Post", new_project_post_path(@project) %>
+ 	<% end %>
+ </div>
+ <% end %>

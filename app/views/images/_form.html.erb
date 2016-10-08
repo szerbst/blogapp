@@ -1,0 +1,6 @@
+<%= simple_form_for([@post, @post.images.build]) do |f| %>
+	<%= f.input :caption %>
+	<%= f.input :picture, as: :file %>
+	<%= f.button :submit %>
+	<%= link_to "Cancel", post_path(@post) %>
+<% end %>

@@ -1,0 +1,28 @@
+<h2><%= link_to "All Projects", projects_path %></h2>
+<% if %>
+	<% @results_project.nil? %>
+		<% %>
+<% else %>
+	<h2>Related Projects</h2>
+	<% @results_project.each do |project| %>
+		<h2><%= link_to project.title, project_path(project) %></h2>
+		<p><%= project.year %> <%= project.make %> <%= project.model %> <%= project.project_type %></p>
+		<p><%= project.description %></p>
+		<p>Created by <%= project.user.username %></p>
+		<div><%= link_to (image_tag project.picture.url(:medium)), project_path(project) %></div>
+	<% end %>
+<% end %>
+
+
+
+<% if %>
+	<% @results_post.nil? %>
+		<% %>
+<% else %>
+	<h2>Related Posts</h2>
+	<% @results_post.each do |post| %>
+		<h3><%= link_to post.title, post_path(post)  %></h3>
+		<p><%= post.content %></p>
+		<p>Tags: <%= post.tag_list %></p>
+	<% end %>
+<% end %>

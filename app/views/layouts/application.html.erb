@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  	<div class="">
+  		<div class="">
+  			<div class="">
+  				<%= link_to "Home", root_path, class: "" %>
+
+  			</div>
+  			<ul class="">
+  				 <% if user_signed_in? %>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+            <li>You are logged in as <%= current_user.username %></li>
+  				<% else %>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  					<li><%= link_to "Log In", new_user_session_path %></li>
+  				<% end %>
+  			</ul>
+
+        <div>
+          <%= form_tag searches_path, :method => :get do %>
+          <P>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :title => nil %>
+          </P>
+          <% end %> 
+        </div>
+
+        </div>
+  		</div>
+  	</div>
+
+     <p class=""><%= notice %></p>
+     <p class=""><%= alert %></p>
+
+    <%= yield %>
+  </body>
+</html>

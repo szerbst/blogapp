@@ -1,0 +1,11 @@
+<%= simple_form_for @project do |f| %>
+	<%= f.input :title, label: "Project Name" %>
+	<%= f.input :description %>
+	<%= f.input :year %>
+	<%= f.input :make %>
+	<%= f.input :model %>
+	<%= f.input :project_type %>	
+	<%= f.input :picture, label: "Main Image", as: :file %>
+	<%= f.button :submit %>
+	<%= link_to "Cancel", root_path %>
+<% end %>
