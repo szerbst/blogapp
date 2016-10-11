@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :find_project, only: [:show, :edit, :update, :destroy]
+	before_action :find_project, only: [:show, :edit, :update, :destroy, :edit_picture]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -24,6 +24,10 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
+		
+	end
+
+	def edit_picture
 		
 	end
 	

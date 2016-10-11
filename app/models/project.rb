@@ -3,7 +3,7 @@ class Project < ApplicationRecord
 	has_many :posts, dependent: :destroy
 	has_many :images, dependent: :destroy
 
-	has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }
+	has_attached_file :picture, styles: { medium: "250x250>", thumb: "100x100>" }
   	validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
   	searchable do

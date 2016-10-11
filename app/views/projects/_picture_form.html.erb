@@ -1,0 +1,5 @@
+<%= simple_form_for @project do |f| %>	
+	<%= f.input :picture, label: false, as: :file, id:"something_else_unique" %>
+	<%= f.button :submit, "Update Main Image" %>
+	<%= link_to "Cancel", root_path %>
+<% end %>

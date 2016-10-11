@@ -10,9 +10,13 @@ Rails.application.routes.draw do
 
 	resources :searches, only: [:index]
 
-	root 'searches#index'
+	root 'main#index'
 
 	get 'tags/:tag', to: 'posts#index', as: :tag
+
+	get 'projects/:id/edit_picture', to: 'projects#edit_picture', as: :edit_picture
+
+
 
 
 end

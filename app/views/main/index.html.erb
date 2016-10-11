@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "application", media: "all" %>
+
+<div class="home-hero">
+	<img src="/hero-main-picture.jpg">
+</div>
+
+<div class="content-container">
+	<div class="primary-content">
+
+	<% @projects.each do |project| %>
+
+		<div class="project-list-item default">
+			<span class="project-thumb-container"><%= link_to (image_tag project.picture.url(:medium)), project_path(project) %></span>
+			<span class="project-listing-title"><%= link_to project.title, project_path(project) %></span>
+			<p class="project-listing-type"><%= project.year %> <%= project.make %> <%= project.model %></p>
+			<p class="project-listing-description"><%= project.description %></p>
+			<p class="project-listing-meta">Created by <%= project.user.username %></p>
+		</div>
+
+	<% end %>
+
+		<p><%= link_to "New Project", new_project_path %></p>
+		<p><%= link_to "View all Projects", projects_path %></p>
+	</div>
+</div>
+
+
+

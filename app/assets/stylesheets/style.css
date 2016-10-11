@@ -1,6 +1,93 @@
+body {
+	background-color: #a9a9a9;
+	padding: 0;
+	margin: 0;
+	border-top: 5px solid #000000;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.content-container {
+	max-width: 1000px;
+	margin: auto;
+	padding: auto;
+	border: 2px solid #000000;
+	overflow: auto;
+}
+
+
+.header {
+	max-width: 1000px;
+	border-bottom: 5px solid #000000;
+	margin: 5px auto;
+	padding: auto;
+}
+
+.header-top {
+    position: relative;	
+}
+
+.toplinks {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: ;
+    font: ;
+    text-align: right;
+    background: none;
+}
+
+.toplinks ul {
+    display: block;
+    float: right;
+    clear: left;
+    list-style: none;
+}
+
+.toplinks ul li {
+	display: inline;
+	padding: 0px 5px 0px 5px;
+}
+
+.navbar1 {
+	position: relative;
+	padding-top: 5px;
+}
+
+.navtabs {
+	display: block;
+}
+
+.navtabs ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.navtabs ul li {
+	display: inline;
+	padding-right: 25px;
+}
+
+.searchfield {
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 0;
+}
+
+.searchfield p {
+	margin: 0;
+}
+
+.home-hero {
+	margin: 15px 0px 20px 0px;
+	padding: auto;
+	text-align: center;
+}
+
 .primary-content {
 	position: relative;
-	width: 700px;
+	width: 600px;
 	float: left;
 	padding: 0px 10px 0px 0px;
 	border-right:  2px solid #000000;
@@ -8,7 +95,7 @@
 }
 
 .project-list-item {
-	min-height: 230px;
+	min-height: 200px;
 	list-style-type: none;
 	padding: 10px 0px 10px 0px;
 	border-bottom: 2px solid #000000;
@@ -21,10 +108,11 @@
 .project-list-item .project-thumb-container {
   position: relative;
   float: left;
-  padding: 0px 15px 0px 0px;
-  margin: 0;
   top: 0;
   left: 0;
+  margin: 0px 15px 0px 0px;
+  padding: 0;
+  border: 5px solid #000000;
 }
 
 .project-list-item .project-listing-title {
