@@ -17,7 +17,11 @@ class ProjectsController < ApplicationController
 	def create
 		@project = current_user.projects.build(project_params)
 		if @project.save
-			redirect_to root_path
+			if params[:project][:picture].present?
+				render :crop
+			else 
+				redirect_to root_path
+			end
 		else
 			render 'new'
 		end	
@@ -33,7 +37,12 @@ class ProjectsController < ApplicationController
 	
 	def update
 		if @project.update(project_params)
-			redirect_to project_path
+			if params[:project][:picture].present?
+				
+				render :crop
+			else 
+				redirect_to root_path
+			end
 		else
 			render 'edit'
 		end
@@ -47,11 +56,13 @@ class ProjectsController < ApplicationController
 	private
 
 		def project_params
-			params.require(:project).permit(:title, :description, :picture, :year, :make, :model, :project_type)
+			params.require(:project).permit(:title, :description, :picture, :year, :make, :model, :project_type,:picture_original_w, :picture_original_h, :picture_box_w, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h, :picture_aspect)
+
 		end
 
 		def find_project
 			@project = Project.find(params[:id])
 		end
+
 
 end

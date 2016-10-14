@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.jcrop
+//= require papercrop
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks

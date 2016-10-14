@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "papercrop", git: "https://github.com/ezuhaib/papercrop"
 gem 'sunspot_rails', '~> 2.2', '>= 2.2.6'
 # This is an optional packaged Solr:
 group :test, :development do
