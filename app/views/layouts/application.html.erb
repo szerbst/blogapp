@@ -61,6 +61,33 @@
 
     <%= yield %>
 
+    <div class="footer">
+      <div class="footer-text">
+        <div class="copyright">
+          &copy; Sam Zerbst
+        </div>
+
+        <div class="navbar1">
+
+          <div class="navtabs">
+            <ul>
+              <li><%= link_to "Home", root_path, class: "" %></li>
+              <li><%= "Other tab" %></li>
+              <li><%= "Anther tab" %></li>
+            </ul>
+          </div>
+
+          <div class="searchfield">
+            <%= form_tag searches_path, :method => :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :title => nil %>
+            </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927050843) do
+ActiveRecord::Schema.define(version: 20161024080539) do
 
   create_table "images", force: :cascade do |t|
     t.text     "caption"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160927050843) do
     t.string   "make"
     t.string   "model"
     t.string   "project_type"
+    t.boolean  "featured"
   end
 
   create_table "taggings", force: :cascade do |t|

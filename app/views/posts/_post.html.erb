@@ -1,5 +1,18 @@
-<h3><%= link_to post.title, post_path(post)  %></h3>
-<p><%= post.content %></p>
-<p>Tags: <%= post.tag_list %></p>
-
-<%= render post.images %>
+<div class="post-list-item default">
+	<div class="row">
+		<div class="col-md-4 col-sm-4">
+			<div class="">
+				<%= render post.images %>
+			</div>
+		</div>
+		<div class="col-md-8 col-sm-8">	
+			<div class="post-text-container">
+				<p class="post-listing-title">
+					<%= link_to post.title, post_path(post)  %></p>
+				<p class="post-listing-content">
+					<%= post.content %></p>
+				<p class="post-listing-tags">Tags: <%= post.tag_list %></p>
+			</div>
+		</div>
+	</div>
+</div>

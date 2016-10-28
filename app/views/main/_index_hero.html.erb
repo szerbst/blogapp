@@ -1,0 +1,6 @@
+<% @featured_projects.each do |project| %>
+	<% if project.featured == true %>
+		<div class="index-hero"><% link_to (image_tag project.picture.url(:large)), project_path(project) %></div>
+		<% end %>
+
+<% end %>

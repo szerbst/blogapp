@@ -1,25 +1,38 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
 	background-color: #a9a9a9;
-	padding: 0;
-	margin: 0;
 	border-top: 5px solid #000000;
+	border-bottom: 5px solid #000000;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.index-hero {
+	
 }
 
 .content-container {
 	max-width: 1000px;
 	margin: auto;
-	padding: auto;
-	border: 2px solid #000000;
+	/*border: 2px solid #000000;*/
+	padding: 0px 10px;
 	overflow: auto;
 }
 
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
 
 .header {
 	max-width: 1000px;
 	border-bottom: 5px solid #000000;
 	margin: 5px auto;
-	padding: auto;
+	margin-bottom: 10px;
+	padding: 0px 10px;
 }
 
 .header-top {
@@ -46,6 +59,19 @@ body {
 .toplinks ul li {
 	display: inline;
 	padding: 0px 5px 0px 5px;
+}
+
+.footer {
+	background-color: #D3D3D3;
+	border-top: 5px solid #000000;
+	padding: 5px 5px;
+	margin-top: 10px;
+}
+
+.footer .footer-text {
+	max-width: 1000px;
+	margin: auto;
+	padding: 0px 10px;
 }
 
 .navbar1 {
@@ -86,26 +112,29 @@ body {
 }
 
 .primary-content {
-	position: relative;
-	width: 600px;
-	float: left;
 	padding: 0px 10px 0px 0px;
-	border-right:  2px solid #000000;
+	border-right:  2px solid #D3D3D3;
 	margin: 0px 0px 0px 0px;
 }
 
+.content-title {
+	font-size: 300%;
+  padding: 0;
+  margin: 0;
+}
+
 .project-list-item {
-	min-height: 200px;
+	min-height: 180px;
 	list-style-type: none;
 	padding: 10px 0px 10px 0px;
-	border-bottom: 2px solid #000000;
+	border-bottom: 2px solid #D3D3D3;
 	margin: 0px 0px 0px 0px;
 	display: block;
 	top: 0;
 	left: 0;
 }
 
-.project-list-item .project-thumb-container {
+.project-thumb-container {
   position: relative;
   float: left;
   top: 0;
@@ -115,24 +144,128 @@ body {
   border: 5px solid #000000;
 }
 
-.project-list-item .project-listing-title {
+.project-list-item .project-text-container {
+  overflow: auto;
+  min-width: 250px;
+}
+
+.project-list-item .project-text-container .project-listing-title {
 	font-size: 200%;
+  top: 0;
+  left: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  float: none;
+}
+
+.project-list-item .project-text-container .project-listing-type {
+	font-size: 150%;
+  top: 0;
+  left: 0;
+  display: block;
+	margin: 0;
+	float: none;
+}
+
+.project-list-item .project-text-container .project-listing-description {
+  margin: 0;
+  float: none;
+}
+
+.project-list-item .project-text-container .project-listing-meta {
+	font-size: 80%;
+  margin: 0;
+  float: none;
+}
+
+.secondary-content {
+	padding: 0px 10px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.side-post-list-item {
+	min-height: 100px;
+	list-style-type: none;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 2px solid #D3D3D3;
+	margin: 0px 0px 0px 0px;
+	display: block;
+	top: 0;
+	left: 0;
+}
+
+.side-post-list-item .side-post-listing-title {
+	font-size: 150%;
   position: relative;
   top: 0;
   left: 0;
   display: block;
 }
 
-.project-list-item .project-listing-type {
-	font-size: 150%;
-  margin: 0;
+.side-post-thumb-container {
+  position: relative;
+  float: left;
+  top: 0;
+  left: 0;
+  margin: 0px 15px 0px 0px;
+  padding: 0;
+  border: 5px solid #000000;
 }
 
-.project-list-item .project-listing-description {
-  margin: 0;
+.project-image-container {
+  position: relative;
+  float: left;
+  top: 0;
+  left: 0;
+  margin: 0px 15px 0px 0px;
+  padding: 0;
+  border: 5px solid #000000;
 }
 
-.project-list-item .project-listing-meta {
+.post-list-item {
+	min-height: 180px;
+	list-style-type: none;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 2px solid #D3D3D3;
+	margin: 0px 0px 0px 0px;
+	display: block;
+	top: 0;
+	left: 0;
+}
+
+.post-thumb-container {
+  position: relative;
+  float: left;
+  top: 0;
+  left: 0;
+  margin: 0px 15px 5px 0px;
+  padding: 0;
+  border: 5px solid #000000;
+}
+
+.post-list-item .post-text-container {
+  overflow: auto;
+  min-width: 250px;
+}
+
+.post-list-item .post-listing-title {
+	font-size: 200%;
+  top: 0;
+  left: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  float: none;
+}
+
+.post-list-item .post-text-container .post-listing-content {
+  margin: 0;
+  float: none;
+}
+
+.post-list-item .post-text-container .post-listing-tags {
 	font-size: 80%;
   margin: 0;
+  float: none;
 }

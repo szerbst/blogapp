@@ -7,7 +7,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		
+		@posts = Post.all.order("created_at DESC").paginate(:page => params[:post_page], :per_page => 5)
+		@projects = Project.all.order("created_at DESC")
+		@images = @project.images
 	end
 
 	def new
@@ -38,7 +40,6 @@ class ProjectsController < ApplicationController
 	def update
 		if @project.update(project_params)
 			if params[:project][:picture].present?
-				
 				render :crop
 			else 
 				redirect_to root_path

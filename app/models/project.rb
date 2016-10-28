@@ -11,4 +11,12 @@ class Project < ApplicationRecord
   		text :title, :description, :make, :model, :project_type
   	end
 
+	private
+
+	def validate_dimensions
+		dimensions = Paperclip::Geometry.from_file(self.picture.queued_for_write[:original])
+    	self.errors.add(:picture, "Please upload a file at least 200 pixels wide") if dimensions.width < 200
+    	self.errors.add(:picture, "Please upload a file at least 200 pixels tall") if dimensions.height < 200
+	end
+
 end
