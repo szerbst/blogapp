@@ -1,22 +1,23 @@
 class ImagesController < ApplicationController
 	before_action :authenticate_user!
+	before_action :load_imageable
 	before_action :find_image, only: [:show, :edit, :update, :destroy]
 
 
+	def index
+		@images = @imageable.images
+	end
+
 	def new
-		@post = Post.find(params[:post_id])
+		@image = @imageable.images.new
 	end	
 
 	def create
-		@post = Post.find(params[:post_id]) 
-		@image = @post.images.new(image_params)
-		@image.project_id = @post.project_id
-		@image.user_id = current_user.id
-		@image.save!
+		@image = @imageable.images.new(image_params)
 
 		if @image.save
 			flash[:alert] = "Image saved successfully!"
-			redirect_to post_path(@post)
+			redirect_to [@imageable, :images]
 		else
 			flash[:alert] = "Image not saved!"
 			render 'new'
@@ -41,7 +42,6 @@ class ImagesController < ApplicationController
 
 	def destroy
 		@image.destroy
-		redirect_to post_path(@image.post_id)
 	end
 
 	private
@@ -54,5 +54,9 @@ class ImagesController < ApplicationController
 			@image = Image.find(params[:id])
 		end
 
+		def load_imageable
+			resource, id = request.path.split('/')[1, 2]
+			@imageable = resource.singularize.classify.constantize.find(id)
+		end
 
 end
