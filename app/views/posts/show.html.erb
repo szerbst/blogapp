@@ -3,7 +3,7 @@
 <p><%= @post.content %></p>
 <p>Tags: <%= raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 <h3>Images</h3>
-<%= render @post.images %>
+<%= "render @post.images" %>
 
 <div>
 <% if user_signed_in? %>

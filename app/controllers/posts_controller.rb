@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
 		if @post.save
 			flash[:alert] = "Post added successfully!"
-			redirect_to new_post_image_path(@post)
+			redirect_to post_path(@post)
 		else
 			render 'new'
 		end

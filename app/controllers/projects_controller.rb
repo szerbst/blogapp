@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
 	def show
 		@posts = Post.all.order("created_at DESC").paginate(:page => params[:post_page], :per_page => 5)
 		@projects = Project.all.order("created_at DESC")
-		@images = @project.images
 	end
 
 	def new

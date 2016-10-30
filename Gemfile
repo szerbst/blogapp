@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 gem "papercrop", git: "https://github.com/ezuhaib/papercrop"
-gem 'sunspot_rails', '~> 2.2', '>= 2.2.6'
+gem 'sunspot_rails', '~> 2.2', '>= 2.2.7'
 # This is an optional packaged Solr:
 group :test, :development do
-  gem 'sunspot_solr'
+gem 'sunspot_solr'
 end
 gem 'rails_admin', '~> 1.0'
 gem 'acts-as-taggable-on', '~> 4.0'
