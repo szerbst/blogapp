@@ -1,0 +1,8 @@
+<h1>Crop</h1>
+
+<%= form_for @image do |f| %>
+  <%= f.cropbox :picture, :width => 500 %><br>
+  <h2>Preview</h2>
+  <%= f.crop_preview :picture, :width => 200 %>
+  <%= f.submit 'Save' %>
+<% end %>

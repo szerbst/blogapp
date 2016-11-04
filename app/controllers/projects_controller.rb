@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
 
 	def show
 		@posts = Post.all.order("created_at DESC").paginate(:page => params[:post_page], :per_page => 5)
-		@projects = Project.all.order("created_at DESC")
-		@images = @project.images
+		@images = @project.post_images + @project.images
+		@comments = @project.comments 
 	end
 
 	def new
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
 	private
 
 		def project_params
-			params.require(:project).permit(:title, :description, :picture, :year, :make, :model, :project_type,:picture_original_w, :picture_original_h, :picture_box_w, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h, :picture_aspect)
+			params.require(:project).permit(:title, :description, :picture, :year, :make, :model, :project_type, :picture_original_w, :picture_original_h, :picture_box_w, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h, :picture_aspect)
 
 		end
 

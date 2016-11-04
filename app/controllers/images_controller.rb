@@ -14,13 +14,25 @@ class ImagesController < ApplicationController
 
 	def create
 		@image = @imageable.images.new(image_params)
-
-		if @image.save
-			flash[:alert] = "Image saved successfully!"
-			redirect_to [@imageable, :images]
-		else
-			flash[:alert] = "Image not saved!"
-			render 'new'
+		if @image.imageable_type == "Post"
+			if @image.save
+				flash[:alert] = "POST image saved successfully!"
+				redirect_to [@imageable, :images]
+			else
+				flash[:alert] = "Image not saved!"
+				render 'new'
+			end
+		elsif @image.imageable_type == "Project"
+			if @image.save
+				if params[:image][:picture].present?
+					render :crop
+				else 
+					redirect_to root_path
+				end
+			else
+				flash[:alert] = "Image not saved!"
+				render 'new'
+			end	
 		end
 	end
 
@@ -47,7 +59,7 @@ class ImagesController < ApplicationController
 	private
 
 		def image_params
-			params.require(:image).permit(:caption, :picture)
+			params.require(:image).permit(:caption, :picture, :picture_original_w, :picture_original_h, :picture_box_w, :picture_crop_x, :picture_crop_y, :picture_crop_w, :picture_crop_h, :picture_aspect)
 		end
 
 		def find_image
