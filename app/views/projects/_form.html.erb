@@ -4,8 +4,7 @@
 	<%= f.input :year %>
 	<%= f.input :make %>
 	<%= f.input :model %>
-	<%= f.input :project_type %>	
-	<%= f.input :picture, label: "Main Image", as: :file %>
+	<%= f.input :project_type %>
 	<%= f.button :submit %>
-	<%= link_to "Cancel", root_path %>
+	<%= link_to "Cancel", project_path(@project) %>
 <% end %>

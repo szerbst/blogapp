@@ -1,17 +1,30 @@
 <div class="post-list-item default">
-	<div class="row">
-		<div class="col-md-4 col-sm-4">
+	<div class="">
+		<div class="">
 			<div class="">
-				<%= render post.images %>
+				<% if post.images.present? %>
+					<%= render post.images.first %>
+				<% else %>
+					<%= "No Images" %>
+				<% end %>
 			</div>
 		</div>
-		<div class="col-md-8 col-sm-8">	
+		<div class="">	
 			<div class="post-text-container">
 				<p class="post-listing-title">
 					<%= link_to post.title, post_path(post)  %></p>
 				<p class="post-listing-content">
-					<%= post.content %></p>
+					<%= simple_format(post.content) %></p>
 				<p class="post-listing-tags">Tags: <%= post.tag_list %></p>
+			</div>
+			<div>
+			<% if user_signed_in? %>
+			 	<% if post.user_id == current_user.id %>
+					<%= link_to "Edit Post", edit_post_path(post) %>
+					<%= link_to "Delete Post", post_path(post), method: :delete, data: { confirm: "Are you sure you want to delete this post?" } %>
+					<%= link_to "Add Images", new_post_image_path(post) %>
+				<% end %>
+			<% end %>
 			</div>
 		</div>
 	</div>

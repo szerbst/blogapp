@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :images, as: :imageable
   has_many :comments, as: :commentable
 
-	acts_as_taggable 
+	acts_as_taggable
 
   	searchable do
   		text :title, :content

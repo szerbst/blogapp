@@ -1,3 +1,7 @@
-<h1>Edit Project</h1>
-
-<%= render 'form' %>
+<% if @project.user_id == current_user.id %>
+	<h1>Edit Project</h1>
+	<%= render 'form' %>
+<% else %>
+	<%= "You do not have permission for this action" %>
+	<%= link_to "Cancel", project_path(@project) %>
+	<% end %>

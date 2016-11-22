@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 	before_action :find_comment, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@comments = @commentable.images
+		@comments = @commentable.comments
 	end
 
 	def new
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id
 
 		if @comment.save
-			redirect_to [@commentable, :comments]
+			redirect_to @commentable
 		else
 			render 'new'
 		end

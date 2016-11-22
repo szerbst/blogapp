@@ -1,8 +1,8 @@
 <h1>Edit Image</h1>
 
-<%= simple_form_for([@post, @post.@image]) do |f| %>
+<%= simple_form_for ([@imageable, @image]) do |f| %>
 	<%= f.input :caption %>
 	<%= f.input :picture, as: :file %>
 	<%= f.button :submit %>
-	<%= link_to "Cancel", post_path(@post) %>
+	<%= link_to "Cancel" %>
 <% end %>

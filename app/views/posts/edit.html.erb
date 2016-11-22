@@ -1,9 +1,17 @@
-<h1>Edit Post</h1>
+<% if @post.user_id == current_user.id %>
+	<h1>Edit Post</h1>
 
-<%= simple_form_for ([@project, @post]) do |f| %>
-	<%= f.input :title, label: "Post Title" %>
-	<%= f.input :content, label: "Post Description" %>
-	<%= f.input :tag_list, label: "Tags" %>		
-	<%= f.button :submit %>
-	<%= link_to "Cancel", post_path(@post) %>
+	<%= form_for(@post) do |f| %>
+		<%= f.label :title %>
+		<%= f.text_field :title %><br>
+		<%= f.label :content %>
+		<%= f.text_field :content %><br>
+		<%= f.label :tag_list %>
+		<%= f.text_field :tag_list, value: @post.tag_list.to_s %><br>
+		<%= f.button :submit %><br>
+		<%= link_to "Cancel", project_path(@project) %>
+	<% end %>
+<% else %>
+	<%= "You do not have permission for this action" %>
+	<%= link_to "Cancel", project_path(@project) %>
 <% end %>

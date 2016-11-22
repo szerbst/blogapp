@@ -12,13 +12,13 @@ class PostsController < ApplicationController
 
 	def new
 		@project = Project.find(params[:project_id])
+		@post = @project.posts.build
 	end	
 
 	def create
 		@project = Project.find(params[:project_id])
-		@post = @project.posts.create(post_params)
+		@post = @project.posts.build(post_params)
 		@post.user_id = current_user.id
-		@post.save!
 
 		if @post.save
 			flash[:alert] = "Post added successfully!"
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
-
+		@project = @post.project_id
 	end
 
 	def update

@@ -245,7 +245,7 @@ body {
 }
 
 .post-list-item .post-text-container {
-  overflow: auto;
+  overflow: ;
   min-width: 250px;
 }
 

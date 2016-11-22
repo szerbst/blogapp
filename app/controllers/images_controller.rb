@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 	before_action :authenticate_user!
-	before_action :load_imageable
+	before_action :load_imageable, except: :edit
 	before_action :find_image, only: [:show, :edit, :update, :destroy]
 
 
@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
 		if @image.imageable_type == "Post"
 			if @image.save
 				flash[:alert] = "POST image saved successfully!"
-				redirect_to [@imageable, :images]
+				redirect_to [@imageable]
 			else
 				flash[:alert] = "Image not saved!"
 				render 'new'
@@ -27,8 +27,9 @@ class ImagesController < ApplicationController
 				if params[:image][:picture].present?
 					render :crop
 				else 
-					redirect_to root_path
+					redirect_to [@imageable]
 				end
+
 			else
 				flash[:alert] = "Image not saved!"
 				render 'new'
@@ -37,7 +38,7 @@ class ImagesController < ApplicationController
 	end
 
 	def show
-	
+		@imageable_path = @image.imageable
 	end
 
 	def edit
@@ -46,14 +47,21 @@ class ImagesController < ApplicationController
 
 	def update
 		if @image.update(image_params)
-			redirect_to image_path(@image)
+			if params[:image][:picture].present?
+				render :crop
+			else 
+				redirect_to [@imageable]
+			end
+
 		else
+			flash[:alert] = "Image not saved!"
 			render 'edit'
-		end
+		end	
 	end
 
 	def destroy
 		@image.destroy
+		redirect_to @image.imageable
 	end
 
 	private

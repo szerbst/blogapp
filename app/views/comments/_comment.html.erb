@@ -1,1 +1,1 @@
-<p><%= comment.comment %></p>
+<p>> <%= comment.comment %> / by <%= comment.user.username %> / <%= time_ago_in_words(comment.updated_at) %> ago</p>

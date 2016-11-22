@@ -4,7 +4,7 @@
  <div>
 <% if user_signed_in? %>
  	<% if @image.imageable.user_id == current_user.id %>
- 	 	<%= link_to "Back to Post", post_path(@image.imageable_id) %>
+ 	 	<%= link_to "Return to " + @image.imageable_type, @imageable_path %><br>
 		<%= link_to "Delete Image", image_path(@image), method: :delete, data: { confirm: "Are you sure you want to delete this image?" } %>
 	<% end %>
 <% end %>

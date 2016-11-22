@@ -8,7 +8,10 @@ class ProjectsController < ApplicationController
 
 	def show
 		@posts = Post.all.order("created_at DESC").paginate(:page => params[:post_page], :per_page => 5)
-		@images = @project.post_images + @project.images
+		@images = @project.images + @project.post_images
+		@image_first = @project.images.first
+		@post_images = @project.post_images
+		@project_images = @project.images
 		@comments = @project.comments 
 	end
 
@@ -19,11 +22,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = current_user.projects.build(project_params)
 		if @project.save
-			if params[:project][:picture].present?
-				render :crop
-			else 
-				redirect_to root_path
-			end
+			redirect_to new_project_image_path(@project)
 		else
 			render 'new'
 		end	
@@ -39,14 +38,10 @@ class ProjectsController < ApplicationController
 	
 	def update
 		if @project.update(project_params)
-			if params[:project][:picture].present?
-				render :crop
-			else 
-				redirect_to root_path
-			end
+			redirect_to project_path(@project)
 		else
-			render 'edit'
-		end
+			render 'new'
+		end	
 	end
 
 	def destroy
