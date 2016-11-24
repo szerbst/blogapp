@@ -12,7 +12,8 @@ class ProjectsController < ApplicationController
 		@image_first = @project.images.first
 		@post_images = @project.post_images
 		@project_images = @project.images
-		@comments = @project.comments 
+		@comments = @project.comments
+		@favorites = @project.favorites
 	end
 
 	def new

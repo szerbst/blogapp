@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
 			params.require(:comment).permit(:comment)
 		end
 
-		def find_image
+		def find_comment
 			@comment = Comment.find(params[:id])
 		end
 

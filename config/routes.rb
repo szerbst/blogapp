@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 	resources :projects, shallow: true do
 		resources :comments
+		resources :favorites, only: [:create, :destroy]
 		resources :posts, shallow: true do
 			resources :comments
+			resources :favorites, only: [:create, :destroy]
 			resources :images
 		end
 		resources :images

@@ -2,7 +2,16 @@
 
 <div class="content-container">
 	<%= link_to "Back", root_path %><br>
-	<%= link_to "Add Comment", new_project_comment_path(@project) %><br><br>
+	<% if user_signed_in? %>
+		<%= link_to "Add Comment", new_project_comment_path(@project) %><br>
+		<% if @favorites.where(:user_id => current_user.id).present? %>
+			<%= button_to "Remove Favorites", favorite_path(@project) , method: :delete %>
+		<% else %>	
+			<%= button_to "Add to Favorites", project_favorites_path(@project), method: :post %>
+		<% end %>
+	<% else %>
+	<% end %><br>
+
 	 <div class="project-navigation">
 		 <% if user_signed_in? %>
 		 	<% if @project.user_id == current_user.id %>
@@ -47,6 +56,14 @@
 				<%= render 'images/gallery' %>
 
 				<div class="">
+					<h3>Favorites</h3>
+				<% @project.favorites.each do |favorite| %>
+					<%= favorite.user.username %>
+				<% end %>
+
+				<%= @project.favorites.count %></div>
+
+				<div class="">
 					<h3>Comments</h3>
 				<%= render @project.comments %></div>
 
@@ -72,7 +89,7 @@
 						<p>by <%= post.project.user.username %> / updated <%= time_ago_in_words(post.updated_at) %> ago</p>
 					</div>
 				</div>
-			<% end %>
+				<% end %>
 			<%= will_paginate @posts, :param_name => 'post_page'  %>
 			</div>
 		</div>
